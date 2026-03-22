@@ -589,12 +589,12 @@ const AdvisoryScreen: React.FC = () => {
                   <View style={styles.mlItem}>
                     <Text style={styles.mlItemLabel}>Fruiting</Text>
                     <ProgressBar
-                      progress={(mlModel.predictions?.fruitingReadiness ?? 0) / 100}
+                      progress={Math.min(1, (mlModel.predictions?.fruitingReadiness ?? 0) / 10)}
                       color="#fbbf24"
                       style={styles.mlBar}
                     />
                     <Text style={[styles.mlItemVal, { color: '#fbbf24' }]}>
-                      {mlModel.predictions?.fruitingReadiness ?? '—'}%
+                      {mlModel.predictions?.fruitingReadiness ?? '—'}/10
                     </Text>
                   </View>
                   <View style={styles.mlItem}>
